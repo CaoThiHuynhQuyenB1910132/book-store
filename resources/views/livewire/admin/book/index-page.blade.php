@@ -2,10 +2,10 @@
     <div class="card">
         <div class="card-body">
 
-            <h4 class="header-title">List Of Categories</h4>
+            <h4 class="header-title">List Of Book</h4>
             @include('admin.components.alerts')
             <div class="mt-3 mb-3">
-                <a href="{{route('category-create')}}" class="btn btn-primary">Create Category</a>
+                <a href="{{route('book-create')}}" class="btn btn-primary">Create Book</a>
             </div>
 
             <div class="tab-content">
@@ -15,24 +15,27 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Category Name</th>
+                                    <th>Book Name</th>
+                                    <th>Book Img</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $category)
+                                @foreach ($books as $book)
                                 <tr>
-                                    <td>{{$category->id}}</td>
-                                    <td>{{$category->category_name}}</td>
+                                    <td>{{$book->id}}</td>
+                                    <td>{{$book->book_name}}</td>
+                                    <td><img src="{{$book->img}}" alt="image" class="img-fluid avatar-sm"></td>
+
                                     <td class="table-action text-center">
-                                        <a href="{{ route('category-edit', ['id'=>$category->id]) }}"
+                                        <a href="{{ route('book-edit', ['id'=>$book->id]) }}"
                                             class="action-icon"> <i class="uil-edit"></i></a>
 
-                                        <a wire:click="deleteCategory({{ $category->id }})" class="action-icon"
+                                        <a wire:click="deleteBook({{ $book->id }})" class="action-icon"
                                             style="cursor: pointer"><i class="mdi mdi-delete" data-bs-toggle="modal"
-                                                data-bs-target=".deleteModal" data-bs-backdrop="static"></i>
-                                        </a>
+                                                data-bs-target=".deleteModal" data-bs-backdrop="static"></i></a>
                                     </td>
+
                                 </tr>
                                 @endforeach
                             </tbody>
