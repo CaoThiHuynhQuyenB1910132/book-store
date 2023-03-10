@@ -10,6 +10,7 @@ class EditPage extends Component
     public $categoryName, $categorySlug;
 
     public $isEditId;
+
     protected $rules = [
         'categoryName' => 'required|max:255',
         'categorySlug' => 'required|max:255',

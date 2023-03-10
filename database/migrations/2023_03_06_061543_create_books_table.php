@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('stock');
             $table->string('book_img');
             $table->string('book_slug');
-
+            $table->integer('author_id');
+            $table->integer('category_id');
         });
     }
 

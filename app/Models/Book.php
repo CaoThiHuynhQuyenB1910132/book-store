@@ -16,7 +16,17 @@ class Book extends Model
         'original_price',
         'published_at',
         'stock',
-        'img',
-        'book_slug'
+        'book_img',
+        'book_slug',
+        'author_id',
+        'category_id'
     ];
+
+    public function author(){
+        return $this->belongsTo(Author::class, 'author_id');
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

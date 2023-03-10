@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Admin\Book;
 
+use App\Models\Author;
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -14,7 +16,7 @@ class CreatePage extends Component
     public $bookName, $bookDesc, $sellingPrice, $originalPrice, $publishedAt,
         $stock,
         $img,
-        $bookSlug;
+        $bookSlug, $authorId, $categoryId;
 
     protected $rules = [
         'bookName' => 'required|max:255',
@@ -25,6 +27,8 @@ class CreatePage extends Component
         'stock' => 'required|in:in-stock,out-stock',
         'img' => 'required|image|max:4096',
         'bookSlug' => 'required|max:255',
+        'authorId' => 'required',
+        'categoryId' => 'required',
     ];
 
     public function updated($propertyName)
@@ -44,9 +48,12 @@ class CreatePage extends Component
         $validatedData['stock'] = $this->stock;
 
         $imgUrl = $this->img->store('upload');
-        $validatedData['img'] = $imgUrl;
+        $validatedData['book_img'] = $imgUrl;
 
         $validatedData['book_slug'] = $this->bookSlug;
+
+        $validatedData['author_id'] = $this->authorId;
+        $validatedData['category_id'] = $this->categoryId;
 
 
         Book::create($validatedData);
@@ -62,7 +69,12 @@ class CreatePage extends Component
 
     public function render()
     {
-        return view('livewire.admin.book.create-page')
+        $categories = Category::orderBy('created_at', 'DESC')->get();
+        $authors = Author::orderBy('created_at', 'DESC')->get();
+        return view('livewire.admin.book.create-page',[
+            'categories' => $categories,
+            'authors' => $authors
+        ])
             ->extends('admin.layouts.app')
             ->section('content');
     }

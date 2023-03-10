@@ -2,10 +2,10 @@
     <div class="card">
         <div class="card-body">
 
-            <h4 class="header-title">List Of Book</h4>
+            <h4 class="header-title">List Of Author</h4>
             @include('admin.components.alerts')
             <div class="mt-3 mb-3">
-                <a href="{{route('book-create')}}" class="btn btn-primary">Create Book</a>
+                <a href="{{route('author-create')}}" class="btn btn-primary">Create Author</a>
             </div>
 
             <div class="tab-content">
@@ -15,27 +15,26 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Book Name</th>
-                                    <th>Book Img</th>
+                                    <th>Author Name</th>
+                                    <th>Birth Day</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($books as $book)
+                                @foreach ($authors as $author)
                                 <tr>
-                                    <td>{{$book->id}}</td>
-                                    <td>{{$book->book_name}}</td>
-                                    <td><img src="{{$book->book_img}}" alt="image" class="img-fluid avatar-sm"></td>
-
+                                    <td>{{$author->id}}</td>
+                                    <td>{{$author->author_name}}</td>
+                                    <th>{{$author->birth_day}}</th>
                                     <td class="table-action text-center">
-                                        <a href="{{ route('book-edit', ['id'=>$book->id]) }}"
+                                        <a href="{{ route('author-edit', ['id'=>$author->id]) }}"
                                             class="action-icon"> <i class="uil-edit"></i></a>
 
-                                        <a wire:click="deleteBook({{ $book->id }})" class="action-icon"
+                                        <a wire:click="deleteAuthor({{ $author->id }})" class="action-icon"
                                             style="cursor: pointer"><i class="mdi mdi-delete" data-bs-toggle="modal"
-                                                data-bs-target=".deleteModal" data-bs-backdrop="static"></i></a>
+                                                data-bs-target=".deleteModal" data-bs-backdrop="static"></i>
+                                        </a>
                                     </td>
-
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -58,12 +57,12 @@
                         id="deleteModalExtra"></button>
                 </div>
                 <div class="modal-body">
-                    <form wire:submit.prevent="destroyBook">
+                    <form wire:submit.prevent="destroyAuthor">
                         <div class="mt-2 text-center">
 
                             <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
                                 <h4>Are you sure ?</h4>
-                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this book ?</p>
+                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this author ?</p>
                             </div>
                         </div>
                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">

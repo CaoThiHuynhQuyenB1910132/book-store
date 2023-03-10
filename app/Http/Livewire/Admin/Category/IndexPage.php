@@ -33,10 +33,19 @@ class IndexPage extends Component
         $isDeleteId = $this->isDeleteId;
         $category = Category::findOrFail($isDeleteId);
 
+        if ($category->book->count() > 0) {
+            session()->flash('warning', 'You can not delete category !!!');
+            $this->dispatchBrowserEvent('hidden-modal');
+        } else {
             $category->delete();
             session()->flash('success', 'Delete category successfully.');
             $this->dispatchBrowserEvent('hidden-modal');
             $this->emit('refresh');
+        }
+            // $category->delete();
+            // session()->flash('success', 'Delete category successfully.');
+            // $this->dispatchBrowserEvent('hidden-modal');
+            // $this->emit('refresh');
     }
 
     public function render()

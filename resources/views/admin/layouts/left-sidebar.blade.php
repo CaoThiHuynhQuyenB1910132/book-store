@@ -29,19 +29,18 @@
                 <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false"
                     aria-controls="sidebarDashboards" class="side-nav-link">
                     <i class="uil-home-alt"></i>
-                    <span class="badge bg-success float-end">4</span>
                     <span> Dashboards </span>
                 </a>
                 <div class="collapse" id="sidebarDashboards">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="dashboard-analytics.html">Book</a>
+                            <a href="{{route('books')}}">Book</a>
                         </li>
                         <li>
-                            <a href="dashboard-crm.html">Author</a>
+                            <a href="{{route('authors')}}">Author</a>
                         </li>
                         <li>
-                            <a href="index.html">Category</a>
+                            <a href="{{route('categories')}}">Category</a>
                         </li>
 
                     </ul>

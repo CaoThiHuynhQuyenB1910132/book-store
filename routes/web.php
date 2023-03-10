@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Livewire\Admin\Author\CreatePage as AuthorCreatePage;
+use App\Http\Livewire\Admin\Author\EditPage as AuthorEditPage;
+use App\Http\Livewire\Admin\Author\IndexPage as AuthorIndexPage;
 use App\Http\Livewire\Admin\Book\CreatePage as BookCreatePage;
+use App\Http\Livewire\Admin\Book\EditPage as BookEditPage;
 use App\Http\Livewire\Admin\Book\IndexPage as BookIndexPage;
 use App\Http\Livewire\Admin\Category\CreatePage;
 use App\Http\Livewire\Admin\Category\EditPage;
@@ -26,7 +30,11 @@ Route::group(['prefix' => '/', 'middleware' => ['admin']], function () {
 
     Route::get('/books', BookIndexPage::class)->name('books');
     Route::get('/book-create', BookCreatePage::class)->name('book-create');
-    Route::get('/book-edit/{id}', BookIndexPage::class)->name('book-edit');
+    Route::get('/book-edit/{id}', BookEditPage::class)->name('book-edit');
+
+    Route::get('/authors', AuthorIndexPage::class)->name('authors');
+    Route::get('/author-create', AuthorCreatePage::class)->name('author-create');
+    Route::get('/author-edit/{id}', AuthorEditPage::class)->name('author-edit');
 });
 
 
