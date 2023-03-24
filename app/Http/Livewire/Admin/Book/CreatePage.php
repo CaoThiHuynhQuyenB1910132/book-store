@@ -42,8 +42,8 @@ class CreatePage extends Component
 
         $validatedData['book_name'] = $this->bookName;
         $validatedData['description'] = $this->bookDesc;
-        $validatedData['selling_price'] = $this->sellingPrice;
-        $validatedData['original_price'] = $this->originalPrice;
+        $validatedData['original_price'] = str_replace('.', '', $this->originalPrice);
+        $validatedData['selling_price'] = str_replace('.', '', $this->sellingPrice);
         $validatedData['published_at'] = $this->publishedAt;
         $validatedData['stock'] = $this->stock;
 

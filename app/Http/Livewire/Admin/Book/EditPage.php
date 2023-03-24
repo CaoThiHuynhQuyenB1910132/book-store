@@ -58,10 +58,11 @@ class EditPage extends Component
     {
         $validatedData = $this->validate();
         $book = Book::findOrFail($this->isEditId);
+        $old_img = $book->book_img;
         $validatedData['book_name'] = $this->bookName;
         $validatedData['description'] = $this->bookDesc;
-        $validatedData['selling_price'] = $this->sellingPrice;
-        $validatedData['original_price'] = $this->originalPrice;
+        $validatedData['original_price'] = str_replace('.', '', $this->originalPrice);
+        $validatedData['selling_price'] = str_replace('.', '', $this->sellingPrice);
         $validatedData['published_at'] = $this->publishedAt;
         $validatedData['stock'] = $this->stock;
 
@@ -70,7 +71,7 @@ class EditPage extends Component
             $imgUrl = $this->newImg->store('upload');
             $validatedData['book_img'] = $imgUrl;
         } else {
-            $validatedData['book_img']= $book->img;
+            $validatedData['book_img'] = $old_img;
         }
 
         $validatedData['author_id'] = $this->authorId;

@@ -11,12 +11,11 @@ use App\Http\Livewire\Admin\Category\EditPage;
 use App\Http\Livewire\Admin\Category\IndexPage as CategoryIndexPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Dashboard\IndexPage;
-use Illuminate\Support\Facades\Artisan;
+use App\Http\Livewire\Client\Book\DetailPage;
+use App\Http\Livewire\Client\Cart\IndexPage as CartIndexPage;
+use App\Http\Livewire\Client\Home\IndexPage as HomeIndexPage;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
@@ -37,6 +36,6 @@ Route::group(['prefix' => '/', 'middleware' => ['admin']], function () {
     Route::get('/author-edit/{id}', AuthorEditPage::class)->name('author-edit');
 });
 
-
-    // Artisan::call('storage:link');
-
+Route::get('/', HomeIndexPage::class)->name('/');
+Route::get('/chi-tiet/{id}/{slug}', DetailPage::class)->name('bookDetail');
+Route::get('/gio-hang', CartIndexPage::class)->name('cartDetail');
