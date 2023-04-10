@@ -17,6 +17,7 @@ use App\Http\Livewire\Client\Checkout\IndexPage as CheckoutIndexPage;
 use App\Http\Livewire\Client\Contact\IndexPage as ContactIndexPage;
 use App\Http\Livewire\Client\Home\IndexPage as HomeIndexPage;
 use App\Http\Livewire\Client\Shop\IndexPage as ShopIndexPage;
+use App\Http\Livewire\Client\Checkout\ThankYou;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -37,8 +38,6 @@ Route::group(['prefix' => '/', 'middleware' => ['admin']], function () {
     Route::get('/authors', AuthorIndexPage::class)->name('authors');
     Route::get('/author-create', AuthorCreatePage::class)->name('author-create');
     Route::get('/author-edit/{id}', AuthorEditPage::class)->name('author-edit');
-
-
 });
 
 Route::get('/', HomeIndexPage::class)->name('/');
@@ -47,3 +46,4 @@ Route::get('/cart', CartIndexPage::class)->name('cartDetail');
 Route::get('/shop', ShopIndexPage::class)->name('shop');
 Route::get('/checkout', CheckoutIndexPage::class)->name('checkout');
 Route::get('/contact', ContactIndexPage::class)->name('contact');
+Route::get('/thank-you', ThankYou::class)->name('thankYou');

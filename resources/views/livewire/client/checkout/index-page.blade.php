@@ -5,6 +5,7 @@
         <h3 class="heading-style-3">Thanh Toán</h3>
     </section>
 
+    @if ($cartBooks->count() > 0)
     <section class="boxed-sm">
         <div class="container">
             <div class="woocommerce">
@@ -116,7 +117,7 @@
                                 </tfoot>
                             </table>
                         </div>
-                        <div class="woocommerce-checkout-payment">
+                        <div class="woocommerce-checkout-payment" style="margin-bottom: 30px">
                             <div class="payment_method_cheque">
                                 <div class="radio">
                                     <label>
@@ -127,10 +128,13 @@
                                 </div>
                             </div>
 
-                            <div class="form-place-order" style="margin-bottom: 30px">
-
+                            <div class="form-place-order">
                                 <input class="place_order btn btn-brand pill" name="woocommerce_checkout_place_order"
                                     value="ĐẶT HÀNG" type="submit">
+                            </div>
+
+                            <div style="margin-bottom: 30px" wire:loading>
+                                Đang xử lý...
                             </div>
                         </div>
                     </form>
@@ -138,4 +142,14 @@
             </div>
         </div>
     </section>
+    @else
+    <div class="text-center" style="margin-top: 30px; margin-bottom: 30px">
+        <h1>Thêm sản phẩm vào giỏ đi bạn êi</h1>
+        <div class="form-">
+            <div class="text-center" style="margin-top: 30px; margin-bottom: 30px">
+                <a href="{{route('shop')}}"><button class="btn btn-warning">Đi đến cửa hàng lẹ</button></a>
+            </div>
+        </div>
+    </div>
+    @endif
 </div>

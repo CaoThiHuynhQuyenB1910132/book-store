@@ -2,9 +2,14 @@
 
 namespace App\Http\Livewire\Client\Checkout;
 
+use App\Mail\OrderMail;
+use Illuminate\Support\Str;
 use App\Models\Cart;
+use App\Models\Order;
+use App\Models\OrderBook;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Facades\Mail;
 
 class IndexPage extends Component
 {
@@ -50,39 +55,29 @@ class IndexPage extends Component
 
         $validatedData = $this->validate();
 
-        // $userSelectedAddress = Address::where('id', $this->shippingAddressId)->firstOrFail();
-        // $houseNumber = $userSelectedAddress->houseNumber;
-        // $ward = $userSelectedAddress->ward->wardName;
-        // $district = $userSelectedAddress->district->districtName;
-        // $province = $userSelectedAddress->province->provinceName;
-        // $shippingAddresses = $houseNumber . ', ' . $ward . ', ' . $district . ', ' . $province;
+        $order = Order::create([
+            'user_id' => Auth::user()->id,
+            'full_name' => $validatedData['full_name'],
+            'phone' => $validatedData['phone'],
+            'email' => $validatedData['email'],
+            'address' => $validatedData['address'],
+            'tracking_number' => Str::upper('ORG' . Str::random(15)),
+            'total' => $this->total,
+            'status' => 'pending',
+        ]);
 
-        // $order = Order::create([
-        //     'userId' => Auth::user()->id,
-        //     'userName' => $userSelectedAddress->userName,
-        //     'userEmail' => $userSelectedAddress->email,
-        //     'phoneNumber' => $userSelectedAddress->phoneNumber,
-        //     'trackingNumber' => Str::upper('VFXVN' . Str::random(15)),
-        //     'shippingAddress' => $shippingAddresses,
-        //     'note' => $validatedData['note'],
-        //     'status' => 'pending',
-        //     'paymentMode' => $validatedData['paymentMode'],
-        //     'paymentId' => $this->paymentId,
-        //     'total' => $this->total + 35000,
-        // ]);
+        foreach ($this->cartBooks as $book) {
+            OrderBook::create([
+                'order_id' => $order->id,
+                'book_id' => $book->book->id,
+                'quantity' => $book->quantity,
+                'purchase_price' => $book->book->selling_price,
+            ]);
+        }
 
-        // foreach ($this->cartProducts as $product) {
-        //     OrderProduct::create([
-        //         'orderId' => $order->id,
-        //         'productId' => $product->product->id,
-        //         'quantity' => $product->quantity,
-        //         'purchasePrice' => $product->product->sellingPrice,
-        //     ]);
-        // }
-
-        // Mail::to($order->userEmail)->send(new PlaceOrderEmail());
-        // Cart::where('userId', Auth::user()->id)->delete();
-        // return redirect()->route('thankYou');
+        Mail::to($order->email)->send(new OrderMail());
+        Cart::where('user_id', Auth::user()->id)->delete();
+        return redirect()->route('thankYou');
     }
 
 
