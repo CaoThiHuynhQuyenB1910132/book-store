@@ -3,7 +3,7 @@
         <div class="rev_slider slider-home-1" id="slider_1">
             <ul>
                 <li>
-                    <img class="rev-slidebg" src="client/images/slider/1.jpg" alt="demo" data-bgposition="center center"
+                    <img class="rev-slidebg" src="client/images/slider/e.jpg" alt="demo" data-bgposition="center center"
                         data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10">
                 </li>
             </ul>
@@ -38,5 +38,4 @@
             </div>
         </div>
     </section>
-
 </div>

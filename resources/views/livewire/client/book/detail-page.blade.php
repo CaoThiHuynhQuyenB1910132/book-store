@@ -1,6 +1,6 @@
 <div>
     <section class="sub-header shop-detail-1">
-        <img class="rellax bg-overlay" src="client/images/sub-header/01.jpg" alt="">
+        <img class="rellax bg-overlay" src="client/images/sub-header/09.jpg" alt="">
         <div class="overlay-call-to-action"></div>
         <h3 class="heading-style-3">{{$book_name}}</h3>
     </section>
@@ -24,7 +24,7 @@
                                     <h2 class="product-title">{{$book_name}}</h2>
                                     <h4 class="price">{{number_format($selling_price, 0, '.',
                                         '.')}} <span><del>{{number_format($original_price, 0, '.',
-                                            '.')}} </del></span> VNĐ</h4>
+                                                '.')}} </del></span> VNĐ</h4>
                                 </div>
                                 <div class="body-desc">
                                     <div class="woocommerce-product-details-short-description">
@@ -35,11 +35,13 @@
                                     <form class="cart">
                                         <div class="quantity buttons-added">
                                             <input class="minus" wire:click="decQuantity" value="-" type="button">
-                                            <input class="input-text qty text"
-                                                name="quantity" wire:model='quantity' title="Qty" readonly>
+                                            <input class="input-text qty text" name="quantity" wire:model='quantity'
+                                                title="Qty" readonly>
                                             <input class="plus" wire:click="incQuantity" value="+" type="button">
                                         </div>
-                                        <button style="margin-left: 25px" wire:click.prevent="addToCart({{$book_id}})" class="btn btn-brand no-radius">Thêm vào giỏ hàng</button>
+
+                                        <button style="margin-left: 25px" wire:click.prevent="addToCart({{$book_id}})"
+                                            class="btn btn-brand no-radius">Thêm vào giỏ hàng</button>
                                     </form>
                                 </div>
 

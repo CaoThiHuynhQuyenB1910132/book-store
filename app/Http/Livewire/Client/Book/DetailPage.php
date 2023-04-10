@@ -27,6 +27,7 @@ class DetailPage extends Component
         }
     }
 
+
     public function addToCart($book_id)
     {
         if (Auth::user()) {
@@ -56,6 +57,7 @@ class DetailPage extends Component
         $this->book_id = $book->id;
         $this->book_name = $book->book_name;
         $this->book_description = $book->description;
+
         $this->original_price = $book->original_price;
         $this->selling_price = $book->selling_price;
         $this->book_img = $book->book_img;

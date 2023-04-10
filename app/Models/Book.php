@@ -33,4 +33,8 @@ class Book extends Model
     public function carts(){
         return $this->hasMany(Cart::class);
     }
+
+    // public function orderBooks(){
+    //     return $this->hasMany(Book::class, 'book_id');
+    // }
 }

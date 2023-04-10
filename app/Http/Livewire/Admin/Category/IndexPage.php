@@ -19,7 +19,6 @@ class IndexPage extends Component
         $categories = Category::orderBy('created_at', 'desc')->get();
         $this->categories = $categories;
 
-
     }
 
     public function deleteCategory($id)
@@ -42,10 +41,7 @@ class IndexPage extends Component
             $this->dispatchBrowserEvent('hidden-modal');
             $this->emit('refresh');
         }
-            // $category->delete();
-            // session()->flash('success', 'Delete category successfully.');
-            // $this->dispatchBrowserEvent('hidden-modal');
-            // $this->emit('refresh');
+
     }
 
     public function render()
