@@ -9,15 +9,15 @@
             <div class="container">
                 <div class="row">
                     <div class="woocommerce-top-control">
-
-                        <form class="woocommerce-ordering select-custom-wrapper" method="get">
-                            <select class="orderby select-custom-wrapper" name="orderby">
-                                <option value="menu_order" selected="selected">Default sorting</option>
-                                <option value="popularity">Sort by popularity</option>
-                                <option value="rating">Sort by average rating</option>
-                                <option value="date">Sort by newness</option>
-                                <option value="price">Sort by price: low to high</option>
-                                <option value="price-desc">Sort by price: high to low</option>
+                        <div>
+                            <input wire:model='searchTerm' placeholder="Tìm kiếm sản phẩm..." style="border: none"
+                                class="woocommerce-result-count" />
+                        </div>
+                        <form class="woocommerce-ordering select-custom-wrapper">
+                            <select wire:model='sortTerm' class="orderby select-custom-wrapper">
+                                <option value="">Mặc định</option>
+                                <option value="lowToHight">Giá từ thấp đến cao</option>
+                                <option value="hightToLow">Giá từ cao đén thấp</option>
                             </select>
                         </form>
                     </div>
@@ -25,10 +25,12 @@
             </div>
         </section>
     </div>
+
     <section class="box-sm">
         <div class="container">
             <div class="row main">
                 <div class="row product-grid-equal-height-wrapper product-equal-height-4-columns flex multi-row">
+                    @if ($books->count() > 0)
                     @foreach ($books as $book)
                     <figure class="item" style="margin-top: 30px">
                         <div class="product product-style-1">
@@ -39,16 +41,27 @@
                             </div>
                             <figcaption class="desc text-center" style="background-color: #97AE76">
                                 <h3>
-                                    <a style="color: white" class="product-name" href="product-detail.html">{{$book->book_name}}</a>
+                                    <a class="product-name" style="color: white" class="product-name"
+                                        href="{{route('bookDetail', ['id' => $book->id, 'slug' => $book->book_slug])}}">{{$book->book_name}}</a>
                                 </h3>
-                                    <span  style="color: white" class="price">{{number_format($book->selling_price, 0, '.',
-                                        '.')}} <span><del>{{number_format($book->original_price, 0, '.',
-                                                '.')}} </del></span> VNĐ</span>
+                                <span style="color: white" class="price">{{number_format($book->selling_price, 0, '.',
+                                    '.')}}
+                                    <span>
+                                        <del>{{number_format($book->original_price, 0, '.',
+                                            '.')}}
+                                        </del>
+                                    </span> VNĐ
+                                </span>
 
                             </figcaption>
                         </div>
                     </figure>
                     @endforeach
+                    @else
+                    <div style="margin-top:30px">
+                        <h1>Không tìm thấy sản phẩm nào</h1>
+                    </div>
+                    @endif
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-right">

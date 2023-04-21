@@ -10,7 +10,8 @@
             <div class="woocommerce">
                 <div class="row" style="margin-top: 30px; margin-bottom: 30px">
                     <div class="text-center">
-                        <h1>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi</h1>
+                        <h1>Đặt hàng thành công !</h1>
+                        <h2 style="margin-top: 30px">Cảm ơn bạn đã sử dụng dịch vụ</h2>
                     </div>
                 </div>
             </div>

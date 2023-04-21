@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\SearchController;
 use App\Http\Livewire\Admin\Author\CreatePage as AuthorCreatePage;
 use App\Http\Livewire\Admin\Author\EditPage as AuthorEditPage;
 use App\Http\Livewire\Admin\Author\IndexPage as AuthorIndexPage;
@@ -11,6 +12,7 @@ use App\Http\Livewire\Admin\Category\EditPage;
 use App\Http\Livewire\Admin\Category\IndexPage as CategoryIndexPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Dashboard\IndexPage;
+use App\Http\Livewire\Admin\Order\IndexPage as OrderIndexPage;
 use App\Http\Livewire\Client\Book\DetailPage;
 use App\Http\Livewire\Client\Cart\IndexPage as CartIndexPage;
 use App\Http\Livewire\Client\Checkout\IndexPage as CheckoutIndexPage;
@@ -38,6 +40,8 @@ Route::group(['prefix' => '/', 'middleware' => ['admin']], function () {
     Route::get('/authors', AuthorIndexPage::class)->name('authors');
     Route::get('/author-create', AuthorCreatePage::class)->name('author-create');
     Route::get('/author-edit/{id}', AuthorEditPage::class)->name('author-edit');
+
+    Route::get('/orders', OrderIndexPage::class)->name('orders');
 });
 
 Route::get('/', HomeIndexPage::class)->name('/');
@@ -47,3 +51,4 @@ Route::get('/shop', ShopIndexPage::class)->name('shop');
 Route::get('/checkout', CheckoutIndexPage::class)->name('checkout');
 Route::get('/contact', ContactIndexPage::class)->name('contact');
 Route::get('/thank-you', ThankYou::class)->name('thankYou');
+

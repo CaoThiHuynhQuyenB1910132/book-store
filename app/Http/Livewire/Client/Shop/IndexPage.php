@@ -8,18 +8,34 @@ use Livewire\WithPagination;
 
 class IndexPage extends Component
 {
-
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    public $sortTerm, $searchTerm;
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
-        $books = Book::orderBy('created_at', 'desc')->paginate(4);
+        $searchTerm = '%' . $this->searchTerm . '%';
+        $books = Book::where('stock', 'in-stock')
+            ->where('book_name', 'like', $searchTerm)
+            ->when($this->sortTerm, function ($query) {
+                $query->when($this->sortTerm == 'hightToLow', function ($subQuery) {
+                    $subQuery->orderBy('selling_price', 'desc');
+                })
+                    ->when($this->sortTerm == 'lowToHight', function ($subQuery) {
+                        $subQuery->orderBy('selling_price', 'asc');
+                    });
+            })
+            ->paginate(4);
 
         return view('livewire.client.shop.index-page', [
             'books' => $books,
         ])
             ->extends('client.layouts.app')
-            ->section('content');;
+            ->section('content');
     }
 }

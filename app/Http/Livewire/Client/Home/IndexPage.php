@@ -7,6 +7,11 @@ use Livewire\Component;
 
 class IndexPage extends Component
 {
+    public $search;
+
+
+
+
     public function render()
     {
         $books = Book::orderBy('created_at')->limit(4)->get();

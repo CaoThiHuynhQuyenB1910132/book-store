@@ -1,32 +1,32 @@
 <div style="margin-bottom: 30px">
     @if ($paginator->hasPages())
     <nav>
-        <ul>
-            <span>
-                {{-- Previous Page Link --}}
-                @if ($paginator->onFirstPage())
-                <span
-                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
-                    Trước đó</span>
-                        @else
-                        <button wire:click="previousPage" wire:loading.attr="disabled" rel="prev"
-                            class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-                            Trước đó</button>
-                                @endif
-                </span>
+        <ul class="pagination pagination-style-2">
 
-                <span>
-                    {{-- Next Page Link --}}
-                    @if ($paginator->hasMorePages())
-                    <button wire:click="nextPage" wire:loading.attr="disabled" rel="next"
-                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-                        Tiếp theo</button>
-                    @else
-                    <span
-                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
-                        Tiếp theo</span>
-                    @endif
+            <span>
+                @if ($paginator->onFirstPage())
+                <span class="prev page-numbers">
+                    <i class="fa fa-long-arrow-left"></i>
                 </span>
+                @else
+                <a class="prev page-numbers" wire:click="previousPage" wire:loading.attr="disabled" rel="prev">
+                    <i class="fa fa-long-arrow-left"></i>
+                </a>
+                @endif
+            </span>
+
+            <span>
+                @if ($paginator->hasMorePages())
+                <a class="next page-numbers " wire:click="nextPage" wire:loading.attr="disabled" rel="next">
+                    <i class="fa fa-long-arrow-right"></i>
+                </a>
+
+                @else
+                <span class="next page-numbers">
+                    <i class="fa fa-long-arrow-right"></i>
+                </span>
+                @endif
+            </span>
         </ul>
     </nav>
     @endif

@@ -3,7 +3,7 @@
         <div class="rev_slider slider-home-1" id="slider_1">
             <ul>
                 <li>
-                    <img class="rev-slidebg" src="client/images/slider/e.jpg" alt="demo" data-bgposition="center center"
+                    <img class="rev-slidebg" src="client/images/slider/1.jpg" alt="demo" data-bgposition="center center"
                         data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10">
                 </li>
             </ul>
@@ -12,7 +12,7 @@
     <section class="boxed-sm">
         <div class="container">
             <div class="heading-wrapper text-center">
-                <h3 class="heading">Sản Phẩm</h3>
+                <h3 class="heading">SẢN PHẨM CỦA CHÚNG TÔI</h3>
             </div>
             <div class="row">
                 <div class="row js-product-masonry-layout-1 product-masonry-layout-1">
@@ -38,4 +38,6 @@
             </div>
         </div>
     </section>
+
+
 </div>

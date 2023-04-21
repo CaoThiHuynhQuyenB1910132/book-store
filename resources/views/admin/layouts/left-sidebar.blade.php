@@ -24,30 +24,20 @@
 
         <!--- Sidemenu -->
         <ul class="side-nav">
-
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false"
-                    aria-controls="sidebarDashboards" class="side-nav-link">
-                    <i class="uil-home-alt"></i>
-                    <span> Dashboards </span>
-                </a>
-                <div class="collapse" id="sidebarDashboards">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="{{route('books')}}">Book</a>
-                        </li>
-                        <li>
-                            <a href="{{route('authors')}}">Author</a>
-                        </li>
-                        <li>
-                            <a href="{{route('categories')}}">Category</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
-
-
+            <ul class="side-nav-item">
+                <li>
+                    <a class="side-nav-link" href="{{route('books')}}">Book</a>
+                </li>
+                <li>
+                    <a class="side-nav-link" href="{{route('authors')}}">Author</a>
+                </li>
+                <li>
+                    <a class="side-nav-link" href="{{route('categories')}}">Category</a>
+                </li>
+                <li>
+                    <a class="side-nav-link" href="{{route('orders')}}">Orders</a>
+                </li>
+            </ul>
         </ul>
 
 
