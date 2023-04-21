@@ -12,6 +12,7 @@ use App\Http\Livewire\Admin\Category\EditPage;
 use App\Http\Livewire\Admin\Category\IndexPage as CategoryIndexPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Dashboard\IndexPage;
+use App\Http\Livewire\Admin\Order\EditPage as OrderEditPage;
 use App\Http\Livewire\Admin\Order\IndexPage as OrderIndexPage;
 use App\Http\Livewire\Client\Book\DetailPage;
 use App\Http\Livewire\Client\Cart\IndexPage as CartIndexPage;
@@ -42,6 +43,7 @@ Route::group(['prefix' => '/', 'middleware' => ['admin']], function () {
     Route::get('/author-edit/{id}', AuthorEditPage::class)->name('author-edit');
 
     Route::get('/orders', OrderIndexPage::class)->name('orders');
+    Route::get('/order-edit/{id}', OrderEditPage::class)->name('order-edit');
 });
 
 Route::get('/', HomeIndexPage::class)->name('/');

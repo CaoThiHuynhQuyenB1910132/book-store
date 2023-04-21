@@ -41,7 +41,7 @@
                                 <td>
                                     <div class="quantity">
                                         <a style="background-color: #97AE76" wire:click="decQuantity({{$book->book->id}})" class="quantity__minus"><span>-</span></a>
-                                        <input name="quantity" type="text" class="quantity__input" value="{{$book->quantity}}">
+                                        <input name="quantity" readonly type="text" class="quantity__input" value="{{$book->quantity}}">
                                         <a style="background-color: #97AE76" wire:click="incQuantity({{$book->book->id}})" class="quantity__plus"><span>+</span></a>
                                     </div>
                                 </td>
@@ -53,7 +53,7 @@
                                 <td class="product-remove">
                                     <span wire:loading.remove
                                         wire:click.prevent="deleteCartProduct({{$book->book->id}})">
-                                        <a class="remove" aria-label="Remove this item">×</a>
+                                        <a style="cursor: pointer" class="remove" aria-label="Remove this item">×</a>
                                     </span>
 
                                 </td>
@@ -101,6 +101,7 @@
         text-decoration: none;
         text-align: center;
         line-height: 23px;
+        cursor: pointer;
     }
 
     .quantity__minus:hover,

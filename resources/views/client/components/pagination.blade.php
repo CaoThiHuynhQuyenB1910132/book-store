@@ -5,11 +5,11 @@
 
             <span>
                 @if ($paginator->onFirstPage())
-                <span class="prev page-numbers">
+                <span style="cursor: pointer" class="prev page-numbers">
                     <i class="fa fa-long-arrow-left"></i>
                 </span>
                 @else
-                <a class="prev page-numbers" wire:click="previousPage" wire:loading.attr="disabled" rel="prev">
+                <a style="cursor: pointer" class="prev page-numbers" wire:click="previousPage" wire:loading.attr="disabled" rel="prev">
                     <i class="fa fa-long-arrow-left"></i>
                 </a>
                 @endif
@@ -17,12 +17,12 @@
 
             <span>
                 @if ($paginator->hasMorePages())
-                <a class="next page-numbers " wire:click="nextPage" wire:loading.attr="disabled" rel="next">
+                <a style="cursor: pointer" class="next page-numbers " wire:click="nextPage" wire:loading.attr="disabled" rel="next">
                     <i class="fa fa-long-arrow-right"></i>
                 </a>
 
                 @else
-                <span class="next page-numbers">
+                <span style="cursor: pointer" class="next page-numbers">
                     <i class="fa fa-long-arrow-right"></i>
                 </span>
                 @endif

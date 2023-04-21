@@ -24,28 +24,40 @@
 
         <!--- Sidemenu -->
         <ul class="side-nav">
-            <ul class="side-nav-item">
-                <li>
-                    <a class="side-nav-link" href="{{route('books')}}">Book</a>
-                </li>
-                <li>
-                    <a class="side-nav-link" href="{{route('authors')}}">Author</a>
-                </li>
-                <li>
-                    <a class="side-nav-link" href="{{route('categories')}}">Category</a>
-                </li>
-                <li>
-                    <a class="side-nav-link" href="{{route('orders')}}">Orders</a>
-                </li>
-            </ul>
-        </ul>
 
+            <li class="side-nav-item">
+                <a href="{{route('books')}}" class="side-nav-link">
+                    <i class="uil-book-alt"></i>
+                    <span> Books </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{route('authors')}}" class="side-nav-link">
+                    <i class=" uil-chat-bubble-user"></i>
+                    <span> Authors </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{route('categories')}}" class="side-nav-link">
+                    <i class=" uil-tag-alt"></i>
+                    <span> Categories </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{route('orders')}}" class="side-nav-link">
+                    <i class="uil-list-ul"></i>
+                    <span> Orders </span>
+                </a>
+            </li>
+        </ul>
 
         <!-- End Sidebar -->
 
         <div class="clearfix"></div>
 
     </div>
-    <!-- Sidebar -left -->
 
 </div>
