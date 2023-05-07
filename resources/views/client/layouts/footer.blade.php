@@ -38,26 +38,26 @@
                     </div>
                     <div class="widget-footer widget-link col-second col-small">
                         <div class="list-link">
-                            <h4 class="h4 heading">SHOP</h4>
+                            <h4 class="h4 heading">ORN Book's</h4>
                             <ul>
                                 <li>
-                                    <a href="#">Food</a>
+                                    <a href="#">Truyện cổ tích</a>
                                 </li>
                                 <li>
-                                    <a href="#">Farm</a>
+                                    <a href="#">Sách cho trẻ em</a>
                                 </li>
                                 <li>
-                                    <a href="#">Health</a>
+                                    <a href="#">Sách nấu ăn</a>
                                 </li>
                                 <li>
-                                    <a href="#">Organic</a>
+                                    <a href="#">Tiểu thuyết</a>
                                 </li>
                             </ul>
                         </div>
 
 
                     </div>
-                    <div class="widget-footer widget-newsletter-footer col-last col-small">
+                    {{-- <div class="widget-footer widget-newsletter-footer col-last col-small">
                         <h4 class="h4 heading">CONTACT US</h4>
                         <div class="widget-link">
                             <ul>
@@ -136,7 +136,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

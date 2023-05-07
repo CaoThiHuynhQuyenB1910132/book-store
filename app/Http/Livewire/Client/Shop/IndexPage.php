@@ -27,7 +27,6 @@ class IndexPage extends Component
                     $subQuery->orderBy('selling_price', 'desc');
                 })
                     ->when($this->sortTerm == 'lowToHight', function ($subQuery) {
-                        $subQuery->orderBy('selling_price', 'asc');
                     });
             })
             ->paginate(4);

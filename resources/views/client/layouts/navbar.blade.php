@@ -21,7 +21,9 @@
             @else
             <li>
                 <a href="{{route('login')}}">Đăng nhập</a>
+
             </li>
+            <li><a href="{{route('register')}}">Đăng ký</a></li>
             @endif
 
         </ul>
@@ -49,9 +51,9 @@
                         <a href="{{route('contact')}}">Liên Hệ</a>
                     </li>
                     @if (Auth::check())
-                    <li>
+                    {{-- <li>
                         <a href="#">Tài khoản của tôi</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">Đăng Xuất</a>
@@ -62,6 +64,10 @@
                     @else
                     <li>
                         <a href="{{route('login')}}">Đăng nhập</a>
+
+                    </li>
+                    <li>
+                    <a href="{{route('register')}}">Đăng ký</a>
                     </li>
                     @endif
                 </ul>
